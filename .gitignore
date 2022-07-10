@@ -1,0 +1,8 @@
+.env*
+*.sqlite*
+venv
+__pycache__
+.idea
+prod
+polina_practice/static
+uploads

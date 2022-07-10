@@ -1,0 +1,26 @@
+{% extends "../base/_base.html" %}
+
+{% block body %}
+    <div class="content-block">
+        <h4 class="content-block-name">Новости</h4>
+
+        {% for news_item in page_obj %}
+            <div class="d-flex my-2 news">
+                {% if news_item.thumbnail %}
+                    <a href="/news/{{ news_item.id }}">
+                        <img src="{{ news_item.thumbnail.url }}" alt="Thumbnail" class="thumbnail">
+                    </a>
+                {% else %}
+                    <div class="no-image"></div>
+                {% endif %}
+                <div class="head">
+                    <p class="created-at text-muted small">{{ news_item.created_at }}</p>
+                    <a href="/news/{{ news_item.id }}" class="name link">{{ news_item.name }}</a>
+                </div>
+            </div>
+        {% endfor %}
+        <div class="mt-3">
+            {% include "../base/_pagination.html" %}
+        </div>
+    </div>
+{% endblock %}

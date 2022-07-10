@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  web:
+    restart: always
+    build: ./
+    entrypoint: >
+      sh -c "python manage.py migrate &&
+             python manage.py collectstatic --no-input &&
+             gunicorn --bind 0.0.0.0:8000 polina_practice.wsgi"
+    volumes:
+      - ./prod/static:/app/polina_practice/static
+      - ./prod/uploads:/app/polina_practice/uploads
+    expose:
+      - 8000
+    env_file:
+      - ./.env
+    depends_on:
+      - db
+
+  db:
+    image: postgres:latest
+    restart: always
+    volumes:
+      - ./prod/postgres_data:/var/lib/postgresql/data/:z
+    env_file:
+      - ./.env
+
+  nginx:
+    restart: always
+    build: ./nginx
+    volumes:
+      - ./prod/static:/app/polina_practice/static
+      - ./prod/uploads:/app/polina_practice/uploads
+    ports:
+      - 80:80
+    depends_on:
+      - web
