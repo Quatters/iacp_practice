@@ -1,0 +1,25 @@
+{% extends "../base/_base.html" %}
+
+{% block body %}
+    <div class="content-block">
+        <h4 class="content-block-name">Сотрудники</h4>
+
+        {% for publisher in page_obj %}
+            <div class="d-flex my-2 news">
+                {% if publisher.photo %}
+                    <a href="/staff/{{ publisher.id }}">
+                        <img src="{{ publisher.photo.url }}" alt="Photo" class="thumbnail">
+                    </a>
+                {% else %}
+                    <div class="no-image"></div>
+                {% endif %}
+                <div class="head">
+                    <a href="/staff/{{ publisher.id }}" class="name link text-break">{{ publisher.full_name }}</a>
+                </div>
+            </div>
+        {% endfor %}
+        <div class="mt-3">
+            {% include "../base/_pagination.html" %}
+        </div>
+    </div>
+{% endblock %}

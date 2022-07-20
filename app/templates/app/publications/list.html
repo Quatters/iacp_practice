@@ -1,0 +1,27 @@
+{% extends "../base/_base.html" %}
+
+{% block body %}
+    <div class="content-block">
+        <h4 class="content-block-name">Публикации</h4>
+
+        {% for publication in page_obj %}
+            <div class="d-flex my-2 news">
+                <div class="head">
+                    <a href="/publications/{{ publication.id }}" class="name link text-break">
+                        {{ publication.name }}
+                    </a>
+                    <div class="d-flex">
+                        {% for author in publication.authors.all %}
+                            <a href="/staff/{{ author.id }}" class="link me-2 mt-3">
+                                {{ author.short_name }}
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        <div class="mt-3">
+            {% include "../base/_pagination.html" %}
+        </div>
+    </div>
+{% endblock %}

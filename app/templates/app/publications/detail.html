@@ -1,0 +1,42 @@
+{% extends "../base/_base.html" %}
+
+{% block body %}
+    <div class="content-block">
+        <h4 class="text-break">{{ object.name }}</h4>
+        <div class="text-muted">Опубликовано {{ object.publication_date }}</div>
+        <div class="d-flex my-1">
+            <div>Авторы:&nbsp;</div>
+            <span>
+                {% for author in publication.authors.all %}
+                    <a href="/staff/{{ author.id }}" class="link mt-3">
+                        {{ author.full_name }}&nbsp;
+                    </a>
+                {% endfor %}
+            </span>
+        </div>
+        <div class="my-1">Издание: {{ publication.edition }}</div>
+        <hr class="mt-0">
+        <p>{{ object.contents|safe }}</p>
+        <hr>
+        <div class="d-flex">
+            <div class="col">
+                {% if publication.doi_link %}
+                    <a href="{{ publication.doi_link }}" target="_blank">
+                        Публикация в doi.org
+                    </a>
+                {% endif %}
+            </div>
+            <div class="col d-flex justify-content-end">
+                {% if publication.volume %}
+                    <div class="text-muted mx-1">Том: {{ publication.volume }}</div>
+                {% endif %}
+                {% if publication.pages %}
+                    <div class="text-muted mx-1">Страницы: {{ publication.pages }}</div>
+                {% endif %}
+                {% if publication.no %}
+                    <div class="text-muted mx-1">Номер публикации: {{ publication.no }}</div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

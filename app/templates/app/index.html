@@ -1,14 +1,41 @@
 {% extends "./base/_base.html" %}
 
 {% block body %}
-    <p>Мы - ИАПУ.</p>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, aut consequuntur culpa cumque deserunt
-        eaque earum harum inventore, minus nihil officiis, repellat rerum sapiente sed veritatis? Ab corporis, cum
-        deleniti eaque facere ipsum iusto minima placeat qui quisquam! Ab accusamus ad adipisci alias, animi aut beatae
-        consequatur cumque dolore dolorum ea eaque eligendi error ex illum in ipsam laboriosam laborum minus molestiae
-        nesciunt nihil nobis odit officiis omnis optio praesentium quas quia quis, unde ut vero voluptatem voluptatum.
-        Accusantium blanditiis dicta distinctio, explicabo illo nam nisi odit quae repellendus reprehenderit
-        repudiandae, sequi similique sint tenetur, ut! At distinctio iure soluta?
-    </p>
+    <div class="row">
+        <div class="col col-7 content-block me-3">
+            <h4 class="content-block-name">О нас</h4>
+
+            <p>Мы - лаба Дудко в ИАПУ.</p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, aut consequuntur culpa cumque deserunt
+                eaque earum harum inventore, minus nihil officiis, repellat rerum sapiente sed veritatis? Ab corporis, cum
+                deleniti eaque facere ipsum iusto minima placeat qui quisquam! Ab accusamus ad adipisci alias, animi aut beatae
+                consequatur cumque dolore dolorum ea eaque eligendi error ex illum in ipsam laboriosam laborum minus molestiae
+                nesciunt nihil nobis odit officiis omnis optio praesentium quas quia quis, unde ut vero voluptatem voluptatum.
+                Accusantium blanditiis dicta distinctio, explicabo illo nam nisi odit quae repellendus reprehenderit
+                repudiandae, sequi similique sint tenetur, ut! At distinctio iure soluta?
+            </p>
+        </div>
+        <div class="col content-block">
+            <h4 class="content-block-name">Последние новости</h4>
+
+            {% for news_item in object_list %}
+            <div class="d-flex my-2 news">
+                {% if news_item.thumbnail %}
+                    <a href="/news/{{ news_item.id }}">
+                        <img src="{{ news_item.thumbnail.url }}" alt="Thumbnail" class="thumbnail-sm">
+                    </a>
+                {% else %}
+                    <div class="no-image"></div>
+                {% endif %}
+                <div class="head d-flex flex-column">
+                    <p class="created-at text-muted small">{{ news_item.created_at }}</p>
+                    <a href="/news/{{ news_item.id }}" class="name link text-break">
+                        {{ news_item.name }}
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
 {% endblock %}

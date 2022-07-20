@@ -13,9 +13,16 @@
                 {% else %}
                     <div class="no-image"></div>
                 {% endif %}
-                <div class="head">
+                <div class="head d-flex flex-column">
                     <p class="created-at text-muted small">{{ news_item.created_at }}</p>
-                    <a href="/news/{{ news_item.id }}" class="name link">{{ news_item.name }}</a>
+                    <p><a href="/news/{{ news_item.id }}" class="name link text-break">{{ news_item.name }}</a></p>
+                    <div class="text-muted small d-flex mt-auto">
+                        {% if news_item.tags %}
+                            {% for tag in news_item.tags.all %}
+                                <div class="tag">{{ tag }}</div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         {% endfor %}

@@ -20,10 +20,17 @@ from app import views
 from polina_practice import settings
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.HomeView.as_view(), name='index'),
 
     path('news/', views.NewsListView.as_view(), name='news_list'),
     path('news/<int:pk>', views.NewsDetailView.as_view(), name='news_detail'),
 
+    path('staff/', views.PublisherListView.as_view(), name='publisher_list'),
+    path('staff/<int:pk>', views.PublisherDetailView.as_view(), name='publisher_detail'),
+
+    path('publications/', views.PublicationListView.as_view(), name='publication_list'),
+    path('publications/<int:pk>', views.PublicationDetailView.as_view(), name='publication_detail'),
+
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

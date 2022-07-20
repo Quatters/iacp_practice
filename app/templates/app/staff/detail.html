@@ -1,0 +1,27 @@
+{% extends "../base/_base.html" %}
+
+{% block body %}
+    <div class="content-block">
+        <div class="d-flex mb-3">
+            {% if object.photo %}
+                <img src="{{ object.photo.url }}" alt="Photo" class="photo-detail">
+            {% endif %}
+            <div class="ms-5">
+                <h5>{{ object.full_name }}</h5>
+                <p>{{ object.info }}</p>
+            </div>
+        </div>
+        {% if object.publications %}
+            <p>Публикации:</p>
+            <ul>
+                {% for publication in object.publications %}
+                    <li>
+                        <a href="/publications/{{ publication.id }}" class="link">
+                            {{ publication.name }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+{% endblock %}
