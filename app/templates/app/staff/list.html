@@ -6,17 +6,17 @@
     <div class="content-block">
         <h4 class="content-block-name">Сотрудники</h4>
 
-        {% for publisher in page_obj %}
+        {% for staff in page_obj %}
             <div class="d-flex my-2 news">
-                {% if publisher.photo %}
-                    <a href="/staff/{{ publisher.id }}">
-                        <img src="{{ publisher.photo.url }}" alt="Photo" class="thumbnail">
+                {% if staff.photo %}
+                    <a href="/staff/{{ staff.id }}">
+                        <img src="{{ staff.photo.url }}" alt="Photo" class="thumbnail">
                     </a>
                 {% else %}
                     <div class="no-image"></div>
                 {% endif %}
                 <div class="head">
-                    <a href="/staff/{{ publisher.id }}" class="name link text-break">{{ publisher.full_name }}</a>
+                    <a href="/staff/{{ staff.id }}" class="name link text-break">{{ staff.full_name }}</a>
                 </div>
             </div>
         {% endfor %}

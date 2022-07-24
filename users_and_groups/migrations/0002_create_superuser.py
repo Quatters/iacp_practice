@@ -8,7 +8,7 @@ from django.utils import timezone
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('app', '0003_alter_article_options_alter_article_thumbnail'),
+        ('users_and_groups', '0001_initial'),
     ]
 
     @staticmethod

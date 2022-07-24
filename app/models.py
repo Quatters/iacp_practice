@@ -1,5 +1,4 @@
 from django.contrib.auth import get_user_model
-from django.contrib.auth.models import User
 from django.db import models
 from ckeditor.fields import RichTextField
 from django.utils.translation import gettext_lazy, pgettext_lazy
@@ -52,13 +51,6 @@ class NewsItem(models.Model):
 
 class Staff(models.Model):
     user = models.OneToOneField(get_user_model(), on_delete=models.CASCADE, verbose_name=gettext_lazy('user'))
-    patr = models.CharField(
-        max_length=128,
-        blank=True,
-        null=True,
-        default=None,
-        verbose_name=gettext_lazy('patronymic')
-    )
     info = models.TextField(blank=True, null=True, default=None, verbose_name=gettext_lazy('info'))
     photo = models.ImageField(
         blank=True,
@@ -74,21 +66,11 @@ class Staff(models.Model):
 
     @property
     def full_name(self):
-        if not self.user.first_name or not self.user.last_name:
-            return ''
-        name = f'{self.user.last_name} {self.user.first_name}'
-        if self.patr:
-            name += f' {self.patr}'
-        return name
+        return self.user.get_full_name()
 
     @property
     def short_name(self):
-        if not self.user.first_name or not self.user.last_name:
-            return ''
-        name = f'{self.user.last_name} {self.user.first_name[0].capitalize()}.'
-        if self.patr:
-            name += f' {self.patr[0].capitalize()}.'
-        return name
+        return self.user.get_short_name()
 
     def __str__(self):
         return self.short_name

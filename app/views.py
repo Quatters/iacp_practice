@@ -66,7 +66,7 @@ class StaffListView(ListView):
         'id',
         'user__first_name',
         'user__last_name',
-        'patr',
+        'user__patr',
         'photo',
     )
     paginate_by = DEFAULT_PAGE_ITEMS_COUNT

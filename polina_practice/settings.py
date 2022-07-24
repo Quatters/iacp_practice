@@ -17,6 +17,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ckeditor',
     'app',
+    'users_and_groups'
 ]
 
 MIDDLEWARE = [
@@ -60,6 +61,8 @@ DATABASES = {
         'PORT': os.environ.get('SQL_PORT', '5432'),
     }
 }
+
+AUTH_USER_MODEL = 'users_and_groups.User'
 
 AUTH_PASSWORD_VALIDATORS = [
     {
