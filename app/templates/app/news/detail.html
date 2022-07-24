@@ -1,5 +1,7 @@
 {% extends "../base/_base.html" %}
 
+{% block title %}- {{ object.name }}{% endblock %}
+
 {% block body %}
     <div class="content-block">
         <h4 class="text-break">{{ object.name }}</h4>
@@ -11,11 +13,15 @@
         {% endif %}
         <p>{{ object.contents|safe }}</p>
         <hr>
-        <div class="text-muted small d-flex">
-            {% if object.tags %}
-                {% for tag in object.tags.all %}
-                    <div class="tag">{{ tag }}</div>
-                {% endfor %}
+        {% if object.tags %}
+            <div class="pagination pagination-sm">
+            {% for tag in object.tags.all %}
+                <li class="page-item">
+                    <a href="{{ base_path }}?tag={{ tag }}" class="page-link">
+                        {{ tag }}
+                    </a>
+                </li>
+            {% endfor %}
             {% endif %}
         </div>
     </div>

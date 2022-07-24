@@ -18,16 +18,18 @@ body {
 
 .content {
     /* height of footer */
-    padding-bottom: 6rem;
+    /*padding-bottom: 6rem;*/
+    padding-bottom: 1.5rem;
 }
 
 .link {
-    color: inherit;
+    color: #3d56cd;
     text-decoration: none;
 }
 
 .link:hover {
     color: #3d56cd !important;
+    text-decoration: underline;
 }
 
 .navbar {
@@ -42,15 +44,7 @@ body {
     background-color: white;
     border-radius: 4px;
     padding: 1.5rem 2rem;
-
-}
-
-.tag {
-    background-color: #c5e4ed;
-    border-radius: 16px;
-    color: black;
-    padding: 3px 12px;
-    margin-right: 4px;
+    height: 100%;
 }
 
 .img {

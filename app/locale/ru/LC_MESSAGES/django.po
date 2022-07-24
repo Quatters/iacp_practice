@@ -1,0 +1,174 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-07-24 13:20+1000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: models.py:9 models.py:24 models.py:114
+msgctxt "lifeless"
+msgid "name"
+msgstr "название"
+
+#: models.py:16
+msgid "tag"
+msgstr "тег"
+
+#: models.py:17 models.py:41
+msgid "tags"
+msgstr "теги"
+
+#: models.py:25
+msgid "contents"
+msgstr "содержание"
+
+#: models.py:30
+msgid "thumbnail"
+msgstr "изображение"
+
+#: models.py:32
+msgid "created at"
+msgstr "создано"
+
+#: models.py:37
+msgctxt "one news"
+msgid ""
+"If set, news will be visible on the main site. Otherwise it will be visible "
+"only on the admin page."
+msgstr ""
+"Если установлено, новость будет показываться на основном сайте. В противном "
+"случае, она будет отображаться только в панели администратора."
+
+#: models.py:39
+msgid "is public"
+msgstr "публичная"
+
+#: models.py:42
+msgctxt "one news"
+msgid "is archived"
+msgstr "в архиве"
+
+#: models.py:46
+msgctxt "one"
+msgid "news"
+msgstr "новость"
+
+#: models.py:47
+msgid "news"
+msgstr "новости"
+
+#: models.py:54
+msgid "user"
+msgstr "пользователь"
+
+#: models.py:60
+msgid "patronymic"
+msgstr "отчество"
+
+#: models.py:62
+msgid "info"
+msgstr "информация"
+
+#: models.py:68
+msgid "photo"
+msgstr "фотография"
+
+#: models.py:72
+msgctxt "one"
+msgid "staff"
+msgstr "сотрудник"
+
+#: models.py:73
+msgid "staff"
+msgstr "сотрудники"
+
+#: models.py:106
+msgid "Magazine article"
+msgstr "Статья в журнале"
+
+#: models.py:107
+msgid "Article collection/chapter"
+msgstr "Статья в сборнике/глава"
+
+#: models.py:108
+msgid "Report"
+msgstr "Доклад"
+
+#: models.py:109
+msgid "Book/monograph"
+msgstr "Книга/монография"
+
+#: models.py:110
+msgid "Patent"
+msgstr "Патент"
+
+#: models.py:111
+msgid "Thesis"
+msgstr "Тезис"
+
+#: models.py:115
+msgid "authors (staff)"
+msgstr "авторы (сотрудники)"
+
+#: models.py:117
+msgid "other authors"
+msgstr "другие авторы"
+
+#: models.py:122
+msgid "One author per line"
+msgstr "Один автор в строке"
+
+#: models.py:124
+msgid "year"
+msgstr "год"
+
+#: models.py:127
+msgid "publication type"
+msgstr "тип публикации"
+
+#: models.py:131
+msgid "annotation"
+msgstr "аннотация"
+
+#: models.py:137
+msgid "Format: x-y (from x to y)"
+msgstr "Формат: x-y (от x до y)"
+
+#: models.py:138
+msgid "pages"
+msgstr "страницы"
+
+#: models.py:140
+msgid "volume"
+msgstr "том"
+
+#: models.py:143
+msgid "Link to publication in doi.org"
+msgstr "Ссылка на публикацию в doi.org"
+
+#: models.py:144
+msgid "link"
+msgstr "ссылка"
+
+#: models.py:159
+msgid "publication"
+msgstr "публикация"
+
+#: models.py:160
+msgid "publications"
+msgstr "публикации"

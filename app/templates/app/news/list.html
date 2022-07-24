@@ -1,13 +1,48 @@
 {% extends "../base/_base.html" %}
 
+{% block title %}
+    - Новости
+    {% if request.path == '/news_archive/' %}
+        (архив)
+    {% endif %}
+{% endblock %}
+
 {% block body %}
     <div class="content-block">
-        <h4 class="content-block-name">Новости</h4>
-
+        <h4 class="content-block-name">
+            Новости
+            {% if request.path == '/news_archive/' %}
+                (архив)
+            {% endif %}
+        </h4>
+        <div class="d-flex">
+            <span class="me-2 align-self-center">Тег:</span>
+            <div class="pagination pagination-sm">
+                <li class="page-item">
+                    <a href="?" {% if not current_tag %}class="page-link active" {% else %}class="page-link"{% endif %}>
+                        Любой
+                    </a>
+                </li>
+                {% for tag in tags %}
+                    <li class="page-item">
+                        <a
+                            href="?tag={{ tag }}"
+                            {% if tag.name == current_tag %}
+                                class="page-link active"
+                            {% else %}
+                                class="page-link"
+                            {% endif %}
+                        >
+                            {{ tag }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </div>
+        </div>
         {% for news_item in page_obj %}
             <div class="d-flex my-2 news">
                 {% if news_item.thumbnail %}
-                    <a href="/news/{{ news_item.id }}">
+                    <a href="{{ request.path }}{{ news_item.id }}">
                         <img src="{{ news_item.thumbnail.url }}" alt="Thumbnail" class="thumbnail">
                     </a>
                 {% else %}
@@ -15,12 +50,20 @@
                 {% endif %}
                 <div class="head d-flex flex-column">
                     <p class="created-at text-muted small">{{ news_item.created_at }}</p>
-                    <p><a href="/news/{{ news_item.id }}" class="name link text-break">{{ news_item.name }}</a></p>
+                    <p>
+                        <a href="{{ request.path }}{{ news_item.id }}" class="name link text-break">
+                            {{ news_item.name }}
+                        </a>
+                    </p>
                     <div class="text-muted small d-flex mt-auto">
                         {% if news_item.tags %}
-                            {% for tag in news_item.tags.all %}
-                                <div class="tag">{{ tag }}</div>
-                            {% endfor %}
+                            <div class="pagination pagination-sm">
+                                {% for tag in news_item.tags.all %}
+                                    <li class="page-item">
+                                        <a href="?tag={{ tag }}" class="page-link">{{ tag }}</a>
+                                    </li>
+                                {% endfor %}
+                            </div>
                         {% endif %}
                     </div>
                 </div>

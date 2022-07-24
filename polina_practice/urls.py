@@ -1,18 +1,3 @@
-"""polina_practice URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.0/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls.static import static
@@ -25,8 +10,11 @@ urlpatterns = [
     path('news/', views.NewsListView.as_view(), name='news_list'),
     path('news/<int:pk>', views.NewsDetailView.as_view(), name='news_detail'),
 
-    path('staff/', views.PublisherListView.as_view(), name='publisher_list'),
-    path('staff/<int:pk>', views.PublisherDetailView.as_view(), name='publisher_detail'),
+    path('news_archive/', views.NewsArchiveListView.as_view(), name='news_archive_list'),
+    path('news_archive/<int:pk>', views.NewsArchiveDetailView.as_view(), name='news_archive_detail'),
+
+    path('staff/', views.StaffListView.as_view(), name='publisher_list'),
+    path('staff/<int:pk>', views.StaffDetailView.as_view(), name='publisher_detail'),
 
     path('publications/', views.PublicationListView.as_view(), name='publication_list'),
     path('publications/<int:pk>', views.PublicationDetailView.as_view(), name='publication_detail'),
