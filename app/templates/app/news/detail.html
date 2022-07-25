@@ -4,14 +4,16 @@
 
 {% block body %}
     <div class="content-block">
-        <h4 class="text-break">{{ object.name }}</h4>
+        <h4 class="break-all">{{ object.name }}</h4>
         <p class="text-muted">{{ object.created_at }}</p>
         {% if object.thumbnail %}
-            <img src="{{ object.thumbnail.url }}" alt="Thumbnail" class="img mb-2">
+            <img src="{{ object.thumbnail.url }}" alt="Thumbnail" class="mb-2" style="max-width: 100%">
         {% else %}
             <hr>
         {% endif %}
-        <p>{{ object.contents|safe }}</p>
+        <div class="break-all mt-1">
+            {{ object.contents|safe }}
+        </div>
         <hr>
         {% if object.tags %}
             <div class="pagination pagination-sm">

@@ -34,8 +34,8 @@
             <p>Том: {{ publication.volume }}</p>
         {% endif %}
         <hr>
-        <h5>Аннотация</h5>
-        <p>{{ object.annotation|safe }}</p>
+        <h5>Описание</h5>
+        <p>{{ object.description|safe }}</p>
         {% if publication.link %}
             <p>DOI:
                 <a href="{{ publication.link }}" target="_blank" class="link">

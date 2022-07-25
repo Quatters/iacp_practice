@@ -110,7 +110,7 @@ class Publication(models.Model):
         choices=TYPES,
         max_length=32
     )
-    annotation = RichTextField(verbose_name=gettext_lazy('annotation'))
+    description = RichTextField(verbose_name=gettext_lazy('description'))
     pages = models.CharField(
         max_length=32,
         blank=True,

@@ -9,8 +9,8 @@ class CustomUserAdmin(UserAdmin):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # add field 'patr' to user in admin panel
-        self.fieldsets[1][1]['fields'] = ("first_name", "last_name", "patr", "email")
+        # add field 'patr' to user in admin panel and reorder
+        self.fieldsets[1][1]['fields'] = ("last_name", "first_name", "patr", "email")
 
 
 class CustomGroupAdmin(GroupAdmin):

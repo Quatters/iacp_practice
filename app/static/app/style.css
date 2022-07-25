@@ -47,8 +47,8 @@ body {
     height: 100%;
 }
 
-.img {
-    max-width: 100%;
+.break-all {
+    word-break: break-all;
 }
 
 .photo-detail {

@@ -4,13 +4,13 @@
 
 {% block body %}
     <div class="content-block">
-        <div class="d-flex mb-3">
+        <div class="mb-3 h-100 overflow-auto">
             {% if object.photo %}
-                <img src="{{ object.photo.url }}" alt="Photo" class="photo-detail">
+                <img src="{{ object.photo.url }}" alt="Photo" style="max-width: 40%; float: left;" class="me-3 mb-3">
             {% endif %}
-            <div class="ms-5">
+            <div class="">
                 <h5>{{ object.full_name }}</h5>
-                <p>{{ object.info }}</p>
+                <p class="break-all">{{ object.info }}</p>
             </div>
         </div>
         {% if object.publications %}
