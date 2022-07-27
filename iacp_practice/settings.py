@@ -30,7 +30,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'polina_practice.urls'
+ROOT_URLCONF = 'iacp_practice.urls'
 
 TEMPLATES = [
     {
@@ -49,7 +49,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'polina_practice.wsgi.application'
+WSGI_APPLICATION = 'iacp_practice.wsgi.application'
 
 DATABASES = {
     'default': {
@@ -86,9 +86,9 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'polina_practice/static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'iacp_practice/static')
 
 MEDIA_URL = '/uploads/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'polina_practice/uploads')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'iacp_practice/uploads')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

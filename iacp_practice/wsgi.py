@@ -1,5 +1,5 @@
 """
-WSGI config for polina_practice project.
+WSGI config for iacp_practice project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'polina_practice.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'iacp_practice.settings')
 
 application = get_wsgi_application()

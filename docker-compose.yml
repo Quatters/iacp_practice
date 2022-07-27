@@ -7,10 +7,10 @@ services:
     entrypoint: >
       sh -c "python manage.py migrate &&
              python manage.py collectstatic --no-input &&
-             gunicorn --bind 0.0.0.0:8000 polina_practice.wsgi"
+             gunicorn --bind 0.0.0.0:8000 iacp_practice.wsgi"
     volumes:
-      - ./prod/static:/app/polina_practice/static
-      - ./prod/uploads:/app/polina_practice/uploads
+      - ./prod/static:/app/iacp_practice/static
+      - ./prod/uploads:/app/iacp_practice/uploads
     expose:
       - 8000
     env_file:
@@ -30,8 +30,8 @@ services:
     restart: always
     build: ./nginx
     volumes:
-      - ./prod/static:/app/polina_practice/static
-      - ./prod/uploads:/app/polina_practice/uploads
+      - ./prod/static:/app/iacp_practice/static
+      - ./prod/uploads:/app/iacp_practice/uploads
     ports:
       - 80:80
     depends_on:
